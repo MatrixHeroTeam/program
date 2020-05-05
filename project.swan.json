@@ -1,0 +1,22 @@
+{
+    "appid": "19444922",
+    "compilation-args": {
+        "common": {
+            "enhance": true
+        }
+    },
+    "host": "baiduboxapp",
+    "preview": {
+        "packageId": 411350
+    },
+    "projectname": "program",
+    "setting": {
+        "urlCheck": false
+    },
+    "swan": {
+        "baiduboxapp": {
+            "extensionJsVersion": "1.12.3",
+            "swanJsVersion": "3.170.10"
+        }
+    }
+}
