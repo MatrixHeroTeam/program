@@ -10,9 +10,21 @@ Page({
     data: {
         userInfo: {},
         hasUserInfo: false,
-        canIUse: swan.canIUse('button.open-type.getUserInfo')
+        inputId: '1241890',
+        inputUrl: 'https://item.jd.com/1241890.html'
     },
-    onLoad() {
+    onShow() {
+        this.getUrl();
+    },
+    bindKeyInputId: function (e) {
+        this.setData({
+            inputId: e.detail.value
+        });
+    },
+    bindKeyInputUrl: function (e) {
+        this.setData({
+            inputUrl: e.detail.value
+        });
     },
     request(materialId) {
         var method = 'jd.union.open.promotion.bysubunionid.get';
@@ -56,6 +68,7 @@ Page({
                         }
                         // });
                     });
+                    swan.exit();
                 }
             }
             ,
@@ -69,6 +82,7 @@ Page({
                 this.setData('loading', false);
             }
         });
+
     },
     setUrlQuery(options) {
         let { url, query } = options;
@@ -134,8 +148,17 @@ Page({
         //补全0，并拼接
         return year + char + this.completeDate(month) + char + this.completeDate(day);
     },
-    getUserInfo(e) {
-        var marterialId = '2791381';
-        this.request('https://item.m.jd.com/product/' + marterialId + '.html');
+    getUrl(e) {
+        var str = this.data.inputUrl + '';
+        var i1 = str.lastIndexOf('/');
+        var itemId = str.substr(i1 + 1 ,str.length);
+        var i2 = itemId.lastIndexOf('.html');
+        itemId = itemId.substring(0, i2);
+        console.log(itemId);
+        this.request('https://item.m.jd.com/product/' + itemId + '.html');
+    },
+    getId(e) {
+        console.log(this.data.inputId);
+        this.request('https://item.m.jd.com/product/' + this.data.inputId + '.html');
     }
 })

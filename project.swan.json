@@ -7,9 +7,12 @@
     },
     "host": "baiduboxapp",
     "preview": {
-        "packageId": 411350
+        "packageId": 411428
     },
     "projectname": "program",
+    "publish": {
+        "version": "1.0.2.0"
+    },
     "setting": {
         "urlCheck": false
     },

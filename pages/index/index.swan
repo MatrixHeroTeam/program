@@ -1,10 +1,20 @@
 <!-- index.swan -->
 <view class="container">
-    <view class="userinfo">
-        <button class="userinfo-login-btn" s-if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击进入 </button>
-        <view s-else class="userinfo-message">
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </view>
-    </view>
+
+	<view class="userinfo1">
+		<view class="card-area">
+			<view class="top-description border-bottom">商品id输入</view>
+			<input class="ipt" placeholder="请输入商品id" bindinput="bindKeyInputId" value="1241890"/>
+		</view>
+		<button class="userinfo-login-btn" bind:tap="getId"> 测试进入 </button>
+	</view>
+    <view class="userinfo1">
+		<view class="card-area">
+			<view class="top-description border-bottom">url地址数据</view>
+			<input class="ipt" placeholder="url地址数据" bindinput="bindKeyInputUrl" value="https://item.jd.com/1241890.html" />
+		</view>
+		<button class="userinfo-login-btn" bind:tap="getUrl"> 测试进入 </button>
+	</view>
+
+    <navigator open-type="exit" target="miniProgram">退出</navigator>
 </view>
